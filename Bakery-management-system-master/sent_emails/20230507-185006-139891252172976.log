@@ -1,0 +1,25 @@
+Content-Type: text/plain; charset="utf-8"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
+Subject: Password reset on 127.0.0.1:8000
+From: webmaster@localhost
+To: upendra@gmail.com
+Date: Sun, 07 May 2023 18:50:06 -0000
+Message-ID: <168348540661.34904.1513990819121474767@fakron-Inspiron-5570>
+
+
+You're receiving this email because you requested a password reset for your user account at 127.0.0.1:8000.
+
+Please go to the following page and choose a new password:
+
+http://127.0.0.1:8000/reset/MTA/bnuezi-13c4f8fb8a4640d2aac81296a74dc418/
+
+Your username, in case you’ve forgotten: upendra
+
+Thanks for using our site!
+
+The 127.0.0.1:8000 team
+
+
+
+-------------------------------------------------------------------------------

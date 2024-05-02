@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Payment Successful</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" type="text/css" href="payment_success.css">
+    <style> 
+        body {
+            background-color: #f2f2f2;
+            font-family: Arial, sans-serif;
+        }
+        
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 50px 50px;
+        }
+        
+        .box {
+            background-color: #ffffff;
+            border: 1px solid #cccccc;
+            border-radius: 5px;
+            padding: 20px;
+            text-align: center;
+        }
+        
+        h1 {
+            color: #4CAF50;
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+        
+        p {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+        .transaction-id {
+            font-weight: bold;
+        }
+        .transaction-id {
+            font-weight: bold;
+        }
+        
+        .amount-paid {
+            font-weight: bold;
+            color: #4CAF50;
+        }
+        
+        .bank-name {
+            font-style: italic;
+        }
+        .success-img {
+            float: right;
+            margin-right: 20px;
+        }
+        
+        .success-details {
+            overflow: hidden;
+        }
+        .payment-details {
+            margin-top: 20px;
+            border-top: 1px solid #ccc;
+            padding-top: 20px;
+        }
+        
+        .payment-details p {
+            margin-bottom: 10px;
+        }
+        
+    </style>
+</head>
+<body>
+	<div class="container">
+		<div class="box">
+			
+			<div class="success-details">
+				<h1>Payment Successful!</h1>
+				<p>Thank you for your purchase. Your payment has been successfully processed.</p>
+				<div class="payment-details">
+					<p>Transaction ID: <span class="transaction-id">1769438</span></p>
+					<p>Amount Paid: <span class="amount-paid">$10</span></p>
+					<p>Payment Method: <span class="bank-name"> Khalti </span></p>
+				</div>
+                <a href="{% url 'index' %}" class="btn">Back to Home</a>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

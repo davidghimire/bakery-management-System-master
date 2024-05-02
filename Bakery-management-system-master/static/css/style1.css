@@ -1,0 +1,53 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f7f7f7;
+}
+
+h1 {
+    text-align: center;
+    margin-top: 50px;
+    margin-bottom: 30px;
+    color: #333333;
+}
+
+.container {
+max-width: 100px;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 5px;
+    box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.3);
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    color: #666666;
+}
+
+input[type=number] {
+    width: 50%;
+}
+
+input[type=radio] {
+    margin-right: 10px;
+}
+.payment-method label {
+ margin-left: 10px;
+}
+
+input[type=submit] {
+    background-color:#b41b1b;
+    color: #ffffff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+}
+
+input[type=submit] {
+    background-color:#d1163f;
+    display: block;
+    margin: 0 auto;
+}

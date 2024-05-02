@@ -1,0 +1,50 @@
+
+body {
+
+    margin: 0;
+    padding: 0;
+}
+
+form {
+    max-width: 500px;
+    padding: 20px;
+    background-color: #f2f2f2;
+    margin: auto;
+    border: 1px solid #ccc;
+}
+
+input[type=text], select {
+    width: 100%;
+    padding: 8px 15px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    border-radius: 9px;
+}
+
+input[type=submit] {
+    background-color: #ec7878;
+    color: #ffffff;
+    padding: 14px 20px;
+    margin: 8px 0;
+    cursor: pointer;
+    width: 40%;
+    margin-left: 28%;
+    border-radius: 5px;
+}
+
+input[type=submit]:hover {
+    opacity: 0.8;
+}
+
+.secondary-address {
+    display: none;
+}
+
+input[type=checkbox]:checked ~ .secondary-address {
+    display: block;
+}
+.use-secondary-address{
+    font-family: 'Lucida Sans' ;
+}  

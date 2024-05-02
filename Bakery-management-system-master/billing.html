@@ -1,0 +1,247 @@
+{% load static %}
+<!doctype html>
+<html class="no-js" lang="zxx">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Bucker – Login | Register</title>
+    <meta name="description" content="240+ Best Bootstrap Templates are available on this website. Find your template for your project compatible with the most popular HTML library in the world." />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="profile" href="https://gmpg.org/xfn/11">
+    <link rel="canonical" href="Replace_with_your_PAGE_URL" />
+
+    <!-- Open Graph (OG) meta tags are snippets of code that control how URLs are displayed when shared on social media  -->
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Bucker – About Us" />
+    <meta property="og:url" content="PAGE_URL" />
+    <meta property="og:site_name" content="Bucker – About Us" />
+    <!-- For the og:image content, replace the # with a link of an image -->
+    <meta property="og:image" content="#" />
+    <meta property="og:description" content="Bucker – About Us" />
+
+    <!-- Add site Favicon -->
+    <link rel="icon" href="https://hasthemes.com/wp-content/uploads/2019/04/cropped-favicon-32x32.png" sizes="32x32" />
+    <link rel="icon" href="https://hasthemes.com/wp-content/uploads/2019/04/cropped-favicon-192x192.png" sizes="192x192" />
+    <link rel="apple-touch-icon" href="https://hasthemes.com/wp-content/uploads/2019/04/cropped-favicon-180x180.png" />
+    <meta name="msapplication-TileImage" content="https://hasthemes.com/wp-content/uploads/2019/04/cropped-favicon-270x270.png" />
+
+    <!-- CSS 
+    ========================= -->
+    <link rel="stylesheet" href="{%static 'css/vendor/bootstrap.min.css'%}">
+    <link rel="stylesheet" href="{%static 'css/slick.css'%}}">
+    <link rel="stylesheet" href="{%static 'css/owl.carousel.min.css'%}">
+    <link rel="stylesheet" href="{%static 'css/ionicons.min.css'%}">
+    <link rel="stylesheet" href="{%static 'css/pe-icon-7-stke.css'%}">
+    <link rel="stylesheet" href="{%static 'css/animate.css'%}">
+    <link rel="stylesheet" href="{%static 'css/nice-select.css'%}">
+    <link rel="stylesheet" href="{%static 'css/magnific-popup.css'%}">
+    <link rel="stylesheet" href="{%static 'css/jquery-ui.min.css'%}">
+    <link href="https://fonts.googleapis.com/css?family=Playfair Display" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/billing.css'%}">
+    <link rel="stylesheet" href="{% static 'css/billing1.css'%}">
+    <link rel="stylesheet" href="{% static 'js/billing.js'%}">
+    <!-- Main Style CSS -->
+    <link rel="stylesheet" href="{%static 'css/style.css'%}">
+
+    <!--modernizr min js here-->
+    <script src="{%static 'js/vendor/modernizr-3.11.2.min.js'%}"></script>
+
+
+    <!-- Structured Data  -->
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "WebSite",
+            "name": "Replace_with_your_site_title",
+            "url": "Replace_with_your_site_URL"
+        }
+    </script>
+</head>
+
+<body>
+
+
+    <!--header area start-->
+    <header class="header_section">
+        <div class="header_top">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="header_top_inner d-flex justify-content-between">
+                            <div class="welcome_text">
+                                <p>World Wide Completely Free Returns and Free Shipping</p>
+                            </div>
+                            <div class="header_top_sidebar d-flex align-items-center">
+                                <ul class="d-flex">
+                                    <li><i class="icofont-phone"></i> <a href="tel:+00123456789">+00 123 456 789</a>
+                                    </li>
+                                    <li><i class="icofont-envelope"></i> <a href="mailto:{{ 'demo@example.com' }}">{{ email|default:'user@example.com' }}</a></li>
+    
+                                    {% if user.is_authenticated %}
+                                    <li class="account_link"> <i class="icofont-user-alt-7"></i><a href="{% url 'acccount'%}">Account</a>
+                                        <ul class="dropdown_account_link">
+                                            <li><a href="{% url 'acccount' %}">My Account</a></li>
+                                            {% comment %} <li><a href="{% url 'logout' %}">Logout</a></li> {% endcomment %}
+                                        </ul>
+                                    </li>
+                                    {% else %}
+                                    {% comment %} <li><a href="{% url 'login' %}">Login</a></li>
+                                    <li><a href="{% url 'register' %}">Register</a></li> {% endcomment %}
+                                    {% endif %}
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        </header>
+
+    <!-- breadcrumbs area start -->
+    <div class="breadcrumbs_aree breadcrumbs_bg mb-110" data-bgimg="{% static 'img/others/breadcrumbs-bg.png'%}">
+        <div class="container">
+            <div class="row">
+                <div class="col-5">
+                    <div class="breadcrumbs_text">
+                        <h1>Order | Details</h1>
+                        <ul>
+                            <li><a href="index.html">Home </a></li>
+                            <li> // Cart | Billing</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- breadcrumbs area end -->
+    
+        <div class="checkout">
+                <h2>Billing details</h2>
+                <form id = "form" method="post">
+                    {% csrf_token %}
+                    <div class="form-group">
+                      <label for="name">Name</label>
+                      <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                      <label for="email">Email</label>
+                      <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                      <label for="phone">Phone</label>
+                      <input type="tel" id="phone" name="phone" required>
+                    </div>
+                    <div class="form-group">
+                      <label for="address">Address</label>
+                      <input type="text" id="address" name="address" required>
+                    </div>
+                    <div class="form-group">
+                      <label for="city">City</label>
+                      <select id="city" name="city">
+                        <option value="">Select a city</option>
+                        <option value="Kathmandu">Kathmandu</option>
+                        <option value="Pokhara">Pokhara</option>
+                        <option value="Biratnagar">Biratnagar</option>
+                        <option value="Birgunj">Birgunj</option>
+                        <option value="Butwal">Butwal</option>
+                        <option value="Dharan">Dharan</option>
+                        <option value="Bharatpur">Bharatpur</option>
+                        <option value="Janakpur">Janakpur</option>
+                        <option value="Nepalgunj">Nepalgunj</option>
+                        <option value="Bhaktapur">Bhaktapur</option>
+                        <option value="Dhangadhi">Dhangadhi</option>
+                        <option value="Birendranagar">Birendranagar</option>
+                        <option value="Kirtipur">Kirtipur</option>
+                        <option value="Lalitpur">Lalitpur</option>
+                        <option value="Tansen">Tansen</option>
+                        <option value="Tikapur">Tikapur</option>
+                        <option value="Gulariya">Gulariya</option>
+                      </select>    
+                    </div>
+                    
+                    <div class="form-group">
+                      <label for="state">State</label>
+                      <input type="text" id="state" name="state" required>
+                    </div>
+
+                    <div class="form-group">
+                      <label for="zip">Zip Code</label>
+                      <input type="text" id="zip" name="zip" required>
+                    </div>
+
+                    <div class="form-group">
+                    <input id = "submit" type="submit" value="Submit">
+                    </div>
+            </form>
+        </div>
+        </body>
+    <!-- JS
+============================================ -->
+
+<script type = "text/javascript">
+
+    var form = document.getElementById('form');
+    form.addEventListener('submit',function(e){
+        e.preventDefault()
+        console.log('Form submitted...')
+    })
+
+    document.getElementById('submit')form.addEventListener('click',funtion(e){
+        submitFormData()
+    })
+
+    function submitFormData(){
+        console.log('Payment button clicked')
+
+        var userFormData = {
+            'name':null,
+            'email':null,
+            'total':total,
+            
+        }
+        var shippingInfo = {
+            'address':null,
+            'city':null,
+            'state':null,
+            'zipcode':null,
+            
+        }
+
+        if(shipping != "False"){
+            shippingInfo.address= form.address.value
+            shippingInfo.city= form.city.value
+            shippingInfo.state= form.state.value
+            shippingInfo.zipcode= form.zipcode.value
+
+            }
+        
+        if(user=='AnonymousUser'){
+            userFormData.name= form.name.value
+            userFormData.email= form.email.value
+            
+
+            }
+        }
+    </script>
+    <script src="{% static 'js/vendor/jquery-3.6.0.min.js'%}"></script>
+    <script src="{% static 'js/vendor/jquery-migrate-3.3.2.min.js'%}"></script>
+    <script src="{% static 'js/vendor/bootstrap.bundle.min.js'%}"></script>
+    <script src="{% static 'js/slick.min.js'%}"></script>
+    <script src="{% static 'js/owl.carousel.min.js'%}"></script>
+    <script src="{% static 'js/wow.min.js'%}"></script>
+    <script src="{% static 'js/jquery.scrollup.min.js'%}"></script>
+    <script src="{% static 'js/jquery.nice-select.js'%}"></script>
+    <script src="{% static 'js/jquery.magnific-popup.min.js'%}"></script>
+    <script src="{% static 'js/mailchimp-ajax.js'%}"></script>
+    <script src="{% static 'js/jquery-ui.min.js'%}"></script>
+    <script src="{% static 'js/jquery.zoom.min.js'%}"></script>
+
+    <!-- Main JS -->
+    <script src="{% static 'js/main.js'%}"></script>
+
+</body>
+
+</html>

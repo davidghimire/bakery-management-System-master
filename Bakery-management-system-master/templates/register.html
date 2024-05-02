@@ -1,0 +1,364 @@
+<!doctype html>
+<html class="no-js" lang="zxx">
+	
+<head>
+	
+<title> Registers Page</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+  
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;	
+	font-family: Raleway, sans-serif;
+}
+
+body {
+	background: linear-gradient(90deg, #dcdbec, #7C78B8);		
+}
+
+.screen__content h1{
+    padding-left: 2vmax;
+    padding-top: 2vmax;
+    color: #3d3a7d;
+}
+
+.container {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	min-height: 100vh;
+}
+
+.screen {		
+	background: linear-gradient(90deg, #5C5696, #7C78B8);		
+	position: relative;	
+	height: 600px;
+	width: 360px;	
+	box-shadow: 0px 0px 24px #5C5696;
+}
+
+.screen__content {
+	z-index: 1;
+	position: relative;	
+	height: 100%;
+}
+
+.screen__background {		
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	z-index: 0;
+	-webkit-clip-path: inset(0 0 0 0);
+	clip-path: inset(0 0 0 0);	
+}
+
+.screen__background__shape {
+	transform: rotate(45deg);
+	position: absolute;
+}
+
+.screen__background__shape1 {
+	height: 550px;
+	width: 600px;
+	background: #FFF;	
+	top: -10px;
+	right: 100px;	
+	border-radius: 0 72px 0 0;
+}
+
+.screen__background__shape2 {
+	height: 220px;
+	width: 220px;
+	background: #6C63AC;	
+	top: -1px;
+	right: 0;	
+	border-radius: 32px;
+}
+
+.screen__background__shape3 {
+	height: 540px;
+	width: 190px;
+	background: linear-gradient(270deg, #5D54A4, #6A679E);
+	top: -24px;
+	right: 0;	
+	border-radius: 32px;
+}
+
+.screen__background__shape4 {
+	height: 400px;
+	width: 200px;
+	background: #7E7BB9;	
+	top: 420px;
+	right: 50px;	
+	border-radius: 60px;
+}
+
+.login {
+	width: 320px;
+	padding: 30px;
+	padding-top: 30px;
+}
+
+.login__field {
+	padding: 20px 0px;	
+	position: relative;	
+}
+
+.login__icon {
+	position: absolute;
+	top: 30px;
+	color: #7875B5;
+}
+
+.login__input {
+	border: none;
+	border-bottom: 2px solid #D1D1D4;
+	background: none;
+	padding: 10px;
+	padding-left: 24px;
+	font-weight: 700;
+	width: 75%;
+	transition: .2s;
+}
+
+.login__input:active,
+.login__input:focus,
+.login__input:hover {
+	outline: none;
+	border-bottom-color: #6A679E;
+}
+
+.login__submit {
+	background: #fff;
+	font-size: 14px;
+	margin-top: 30px;
+	padding: 16px 20px;
+	border-radius: 26px;
+	border: 1px solid #D4D3E8;
+	text-transform: uppercase;
+	font-weight: 700;
+	display: flex;
+	align-items: center;
+	width: 100%;
+	color: #4C489D;
+	box-shadow: 0px 2px 2px #5C5696;
+	cursor: pointer;
+	transition: .2s;
+}
+
+.login__submit:active,
+.login__submit:focus,
+.login__submit:hover {
+	border-color: #6A679E;
+	outline: none;
+}
+
+.button__icon {
+	font-size: 24px;
+	margin-left: auto;
+	color: #7875B5;
+}
+
+.social-login {	
+	position: absolute;
+	height: 140px;
+	width: 160px;
+	text-align: center;
+	bottom: 0px;
+	right: 0px;
+	color: #fff;
+}
+
+.social-icons {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.social-login__icon {
+	padding: 20px 10px;
+	color: #fff;
+	text-decoration: none;	
+	text-shadow: 0px 0px 8px #7875B5;
+}
+
+.social-login__icon:hover {
+	transform: scale(1.5);	
+}
+.login p{
+    color:rgb(60, 51, 51);
+    padding-top: 1vmax;
+    padding-left:3vmax ;
+}
+.register {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px;
+}
+
+.register label {
+  margin-bottom: 5px;
+}
+
+.register input[type="text"],
+.register input[type="email"],
+.register input[type="password"] {
+  border: 2px solid #ccc;
+  border-radius: 10px;
+  padding: 10px;
+  font-size: 16px;
+}
+
+.register input[type="text"]:focus,
+.register input[type="email"]:focus,
+.register input[type="password"]:focus {
+  outline: none;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+}
+
+</style>
+</head>
+<body>
+  <div class="container">
+    <div class="screen">
+      <div class="screen__content">
+		<h1>REGISTER</h1>
+        <form method ="post" class="login" id="registration-form">
+          {% csrf_token %}
+          <div class="register">
+          <label for="name">Name:</label>
+          <input type="text" id="name" name="name"><br>
+          </div>
+          <div class="register">
+          <label for="username">Username:</label>
+          <input type="text" id="username" name="username"><br>
+          </div>
+          <div class="register">
+          <label for="email">Email:</label>
+          <input type="email" id="email" name="email"><br>
+          </div>
+          <div class="register">
+          <label for="password">Password:</label>
+          <input type="password" id="password" name="password"><br>
+          </div>
+          <button class="button login__submit" type="submit">
+            <span class="button__text">Register</span>
+            <i class="button__icon fa fa-chevron-right"></i>
+          </button>	
+		  <p>Already a member? <a href="{%url 'login'%}">Login</a> </p>			
+        </form>
+        
+      </div>
+      <div class="screen__background">
+        <span class="screen__background__shape screen__background__shape4"></span>
+        <span class="screen__background__shape screen__background__shape3"></span>		
+        <span class="screen__background__shape screen__background__shape2"></span>
+        <span class="screen__background__shape screen__background__shape1"></span>
+      </div>		
+    </div>
+  </div>
+  
+<!-- Include the Toastify CSS and JS files -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css" />
+<script src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+
+<script>
+  const form = document.getElementById('registration-form');
+  form.addEventListener('submit', (event) => {
+    event.preventDefault();
+
+    const nameInput = document.getElementById('name');
+    const usernameInput = document.getElementById('username');
+    const emailInput = document.getElementById('email');
+    const passwordInput = document.getElementById('password');
+
+    if (!nameInput.value) {
+      Toastify({
+        text: 'Please enter your name.',
+        duration: 3000,
+        gravity: 'bottom',
+        position: 'right',
+        backgroundColor: 'red',
+      }).showToast();
+      return;
+    }
+
+    if (!usernameInput.value) {
+      Toastify({
+        text: 'Please enter a username.',
+        duration: 3000,
+        gravity: 'bottom',
+        position: 'right',
+        backgroundColor: 'red',
+      }).showToast();
+      return;
+    }
+
+    if (!emailInput.value) {
+      Toastify({
+        text: 'Please enter your email.',
+        duration: 3000,
+        gravity: 'bottom',
+        position: 'right',
+        backgroundColor: 'red',
+      }).showToast();
+      return;
+    }
+
+    if (!passwordInput.value) {
+      Toastify({
+        text: 'Please enter a password.',
+        duration: 3000,
+        gravity: 'bottom',
+        position: 'right',
+        backgroundColor: 'red',
+      }).showToast();
+      return;
+    }
+
+    fetch('/register/', {
+      method: 'POST',
+      body: new FormData(form),
+      })
+      .then(response => response.json())
+      .then(data => {
+      if (data.success) {
+      Toastify({
+      text: 'You have successfully registered!',
+      duration: 3000,
+      gravity: 'bottom',
+      position: 'right',
+      backgroundColor: 'green',
+      }).showToast();
+      form.reset();
+      } else {
+      Toastify({
+      text: data.error,
+      duration: 3000,
+      gravity: 'bottom',
+      position: 'right',
+      backgroundColor: 'red',
+      }).showToast();
+      }
+      })
+      .catch(error => {
+      console.error(error);
+      Toastify({
+      text: 'An error occurred. Please try again later.',
+      duration: 3000,
+      gravity: 'bottom',
+      position: 'right',
+      backgroundColor: 'red',
+      }).showToast();
+      });
+      });
+      </script>
+      
+      </body>
+      
+
+</html>

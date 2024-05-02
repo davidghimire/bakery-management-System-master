@@ -1,0 +1,279 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payement</title>
+    {% comment %} <link rel="stylesheet" href="{% static 'css/style3.css' %}"> {% endcomment %}
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+
+    <style>
+      body {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+      }
+      
+      .payment-form {
+        width: 100%;
+        max-width: 600px;
+        margin: auto;
+        padding: 20px;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        background-color: rgba(0, 0, 0, 0.1);
+      } 
+      /* Other CSS styles */
+      .payment-methods {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 20px;
+      }
+      
+      .payment-method {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        cursor: pointer;
+      }
+      
+      .payment-method img {
+        width: 100px;
+        height: auto;
+        margin-bottom: 10px;
+      }
+      
+      .payment-method h3 {
+        margin: 0;
+        font-size: 18px;
+        font-weight: normal;
+      }
+      
+      .form-group {
+        margin-bottom: 10px;
+      }
+      
+      label {
+        display: block;
+        margin-bottom: 5px;
+        font-weight: bold;
+      }
+      
+      input[type="text"] {
+        width: 100%;
+        padding: 10px;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+      }
+      
+      button[type="submit"] {
+        display: block;
+        margin: auto;
+        padding: 10px 20px;
+        background-color: #4CAF50;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        font-size: 18px;
+        cursor: pointer;
+      }
+      
+      button[type="submit"]:hover {
+        background-color: #3E8E41;
+      }
+        
+      #cash-message {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 10px;
+        font-size: 25px;
+        font-weight: bold;
+        text-align: center;
+      }
+
+      .order-summary-wrapper {
+        position: absolute;
+    	  right:11vmax;
+    	  top: 9vmax;
+	      width: 17%;
+        max-width: 100;
+        margin: auto;
+        padding: 20px;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        background-color: rgba(0, 0, 0, 0.1);
+      }
+      
+      .order-summary {
+        display: flex;
+        flex-direction: column;
+      }
+      
+      .order-summary-title {
+        text-align: center;
+        font-size: 25px;
+        font-weight: bold;
+        margin-bottom: 16px;
+      }
+      
+      .item {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 8px;
+        line-height:2;
+      }
+
+      .title {
+        font-weight: bold;
+        font-size : 18px;
+      }
+      
+      .value {
+        font-weight: normal;
+        font-size : 18px;
+      }
+      
+      
+      .item.total {
+        margin-top: 16px;
+        border-top: 1px solid #ccc;
+        padding-top: 8px;
+        font-weight: bold;
+      }
+      
+      .other {
+        margin-top: 8px;
+        font-size: 10px;
+      }
+      
+    </style>
+
+  </head>
+
+<body>
+  <body>
+    <div class="payment-form">
+      <h2>Select Payment Method</h2>
+      <br>
+      <div class="payment-methods">
+        <div class="payment-method" data-method="card">
+          <img src="{% static 'img/logo/card.png'%}" alt="Credit Card">
+          <h3>Credit Card</h3>
+        </div>
+
+        <div class="payment-method" data-method="khalti" data-url="{% url 'khalti' %}">
+          <img src="{% static 'img/logo/khalti.png'%}" alt="khalti">
+          <h3>Khalti</h3>
+        </div>
+  
+        <div class="payment-method" data-method="cash">
+          <img src="{% static 'img/logo/COD.png'%}" alt="khalti">
+          <h3>Cash On delivery</h3>
+        </div>
+      </div>
+      <div id="payment-form">
+        <form id="payment-details">
+          <div class="form-group">
+            <label for="card-number">Card Number</label>
+            <input type="text" id="card-number" name="card-number" required>
+          </div>
+          <div class="form-group">
+            <label for="expiry-date">Expiry Date</label>
+            <input type="text" id="expiry-date" name="expiry-date" placeholder="MM/YY" required>
+          </div>
+          <div class="form-group">
+            <label for="cvv">CVV</label>
+            <input type="text" id="cvv" name="cvv" required>
+          </div>
+          <div class="form-group">
+            <label for="name">Name on Card</label>
+            <input type="text" id="name" name="name" required>
+          </div>
+          <br><br>
+          <button type="submit">Pay Now</button>
+        </form>
+
+        <form method="POST" action="{% url 'payment' %}">
+          {% csrf_token %}
+        <div id="cash-message" style="display: none; padding:10px">
+          <p> You can pay in cash to our courier when you receive the goods at your doorstep. </p>
+          <button type="submit">Confirm Order</button>
+        </div>
+        <br>
+        <br>
+      </form>
+      </div>
+    </div>
+
+    <div class="order-summary-wrapper clearfix">
+      <div class="order-summary">
+        <h3 class="order-summary-title">Order Summary</h3>
+        <br>
+        <div class="item clearfix">
+          <div class="title"><span>Subtotal &emsp;&emsp;&emsp;&emsp;&emsp;</span></div>
+          <div class="value"><span>Rs. 770</span></div>
+        </div>
+        <div class="item clearfix">
+          <div class="title"><span>Cash Payment Fee</span></div>
+          <div class="value"><span>Rs. 10</span></div>
+        </div>
+        <div>
+          <div class="item total clearfix">
+            <div class="title"><span>Total Amount</span></div>
+            <div class="value"><span>&emsp;&emsp;&emsp;Rs. 780 </span></div>
+          </div>
+          <div class="other"><span class="otherText"></span></div>
+        </div>
+      </div>
+    </div>
+    
+  
+    <script>
+      const paymentMethods = document.querySelectorAll('.payment-method');
+      const paymentDetailsForm = document.getElementById('payment-details');
+      const khaltiLoginForm = document.getElementById('khalti-login');
+      const cashMessage = document.getElementById('cash-message');
+
+      const khaltiButton = document.querySelector('.payment-method[data-method="khalti"]');
+      khaltiButton.addEventListener('click', () => {
+        const url = khaltiButton.dataset.url;
+        window.location.href = url;
+      });
+  
+      // add click event listener to each payment method
+      paymentMethods.forEach(method => {
+        method.addEventListener('click', () => {
+          // toggle selected class on payment method
+          paymentMethods.forEach(m => m.classList.remove('selected'));
+          method.classList.add('selected');
+  
+          // toggle visibility of payment details form and khalti login form based on selected method
+          const selectedMethod = method.getAttribute('data-method');
+          if (selectedMethod === 'card') {
+            paymentDetailsForm.style.display = 'block';
+            khaltiLoginForm.style.display = 'none';
+            cashMessage.style.display = 'none'; // hide cash message
+          } 
+          else if (selectedMethod === 'khalti') {
+            paymentDetailsForm.style.display = 'none';
+            khaltiLoginForm.style.display = 'none';
+            cashMessage.style.display = 'none'; // hide cash message
+
+          }
+          else if (selectedMethod === 'cash') {
+            paymentDetailsForm.style.display = 'none'; // show payment details form
+            khaltiLoginForm.style.display = 'none';
+            cashMessage.style.display = 'block'; // show cash message
+          }
+        });
+      });
+    </script>
+</body>
+</html>

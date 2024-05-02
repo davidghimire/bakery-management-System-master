@@ -1,0 +1,554 @@
+{% load static%}
+<!doctype html>
+<html class="no-js" lang="zxx">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Bucker – Single Product </title>
+    <meta name="description" content="240+ Best Bootstrap Templates are available on this website. Find your template for your project compatible with the most popular HTML library in the world." />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="profile" href="https://gmpg.org/xfn/11">
+    <link rel="canonical" href="Replace_with_your_PAGE_URL" />
+
+    <!-- Open Graph (OG) meta tags are snippets of code that control how URLs are displayed when shared on social media  -->
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Bucker – Single Product" />
+    <meta property="og:url" content="PAGE_URL" />
+    <meta property="og:site_name" content="Bucker – Single Product" />
+    <!-- For the og:image content, replace the # with a link of an image -->
+    <meta property="og:image" content="#" />
+    <meta property="og:description" content="Bucker – Single Product" />
+
+    <!-- Add site Favicon -->
+    <link rel="icon" href="https://hasthemes.com/wp-content/uploads/2019/04/cropped-favicon-32x32.png" sizes="32x32" />
+    <link rel="icon" href="https://hasthemes.com/wp-content/uploads/2019/04/cropped-favicon-192x192.png" sizes="192x192" />
+    <link rel="apple-touch-icon" href="https://hasthemes.com/wp-content/uploads/2019/04/cropped-favicon-180x180.png" />
+    <meta name="msapplication-TileImage" content="https://hasthemes.com/wp-content/uploads/2019/04/cropped-favicon-270x270.png" />
+
+    <!-- CSS 
+    ========================= -->
+    <link rel="stylesheet" href="{% static 'css/vendor/bootstrap.min.css'%}">
+    <link rel="stylesheet" href="{% static 'css/slick.css'%}">
+    <link rel="stylesheet" href="{% static 'css/owl.carousel.min.css'%}">
+    <link rel="stylesheet" href="{% static 'css/ionicons.min.css'%}">
+    <link rel="stylesheet" href="{% static 'css/pe-icon-7-stroke.css'%}">
+    <link rel="stylesheet" href="{% static 'css/animate.css'%}">
+    <link rel="stylesheet" href="{% static 'css/nice-select.css'%}">
+    <link rel="stylesheet" href="{% static 'css/magnific-popup.css'%}">
+    <link rel="stylesheet" href="{% static 'css/jquery-ui.min.css'%}">
+    <!-- Main Style CSS -->
+    <link rel="stylesheet" href="{% static 'css/style.css'%}">
+
+
+    <!--modernizr min js here-->
+    <script src="{% static 'js/vendor/modernizr-3.11.2.min.js'%}"></script>
+
+    <script type="text/javascript">
+        var user = '{{request.user}}'
+        function getToken(name) {
+            let cookieValue = null;
+            if (document.cookie && document.cookie !== '') {
+              const cookies = document.cookie.split(';');
+              for (let i = 0; i < cookies.length; i++) {
+                const cookie = cookies[i].trim();
+                // Does this cookie string begin with the name we want?
+                if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                  cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                  break;
+                }
+              }
+            }
+            return cookieValue;
+          }
+          const csrftoken = getToken('csrftoken');
+
+          function getCookie(name) {
+    
+            var cookieArr = document.cookie.split(";");
+    
+            for(var i = 0; i < cookieArr.length;i++){
+                var cookiePair = cookieArr[i].split("=");
+    
+                if(name == cookiePair[0].trim()){
+                  return decodeURIComponent(cookiePair[1]);
+                }
+            }
+    
+            return null;
+        }
+    
+            var cart = JSON.parse(getCookie('cart'))
+    
+            if(cart == undefined){
+                cart = {}
+                console.log("Cart was created! ")
+    
+                document.cookie = "cart=" + JSON.stringify(cart) + ";domain=;path=/"
+            }
+            console.log('Cart: ', cart)
+    
+
+    </script>
+    <style>
+        .cart_logo {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+        }
+        
+        .cart_logo img {
+            width: 100%;
+            height: 100%;
+        }
+
+        
+        
+    </style>
+
+
+
+    <!-- Structured Data  -->
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "WebSite",
+            "name": "Replace_with_your_site_title",
+            "url": "Replace_with_your_site_URL"
+        }
+    </script>
+</head>
+
+<body>
+
+
+    <!--offcanvas menu area start-->
+    <div class="body_overlay">
+
+    </div>
+    <div class="offcanvas_menu">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="offcanvas_menu_wrapper">
+                        <div class="canvas_close">
+                            <a href="javascript:void(0)"><i class="ion-android-close"></i></a>
+                        </div>
+                        <div class="welcome_text text-center">
+                            <p>Welcome to Bucker Bakery Shop</p>
+                        </div>
+                        <div id="menu" class="text-left ">
+                            <ul class="offcanvas_main_menu">
+                                <li class="menu-item-has-children active">
+                                    <a href="{% url 'index'%}">Home</a>
+                                </li>
+                                <li><a href="{% url 'about' %}">About Us</a></li>
+                                <li class="menu-item-has-children"><a href="{% url 'shop' %}">Shop</a></li>
+                                        <li class="menu-item-has-children"><a href="#">Product Related</a>
+                                            <ul class="sub-menu">
+                                                <li>
+                                                    <a href="{% url 'acccount'%}">My Account</a>
+                                                </li>
+                                                <li>
+                                                    <a href="{% url 'login' %}">Login</a>
+                                                </li>
+
+                                                <li>
+                                                    <a href="{% url 'register' %}">Register</a>
+                                                </li>
+
+                                                <li>
+                                                    <a href="cart.html">Shopping Cart</a>
+                                                </li>
+                                                <li>
+                                                    <a href="wishlist.html">Wishlist</a>
+                                                </li>
+                                                <li>
+                                                    <a href="compare.html">Compare</a>
+                                                </li>
+                                                <li>
+                                                    <a href="checkout.html">Checkout</a>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </li>
+                                
+                                <li class="menu-item-has-children"><a href="{% url 'contact' %}">Contact Us</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--offcanvas menu area end-->
+
+    <!--header area start-->
+    <header class="header_section">
+        <div class="header_top">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="header_top_inner d-flex justify-content-between">
+                            <div class="welcome_text">
+                                <p>World Wide Completely Free Returns and Free Shipping</p>
+                            </div>
+                            <div class="header_top_sidebar d-flex align-items-center">
+                                <ul class="d-flex">
+                                    <li><i class="icofont-phone"></i> <a href="tel:+00123456789">+00 123 456 789</a>
+                                    </li>
+                                    <li><i class="icofont-envelope"></i> <a href="mailto:{{ 'demo@example.com' }}">{{ email|default:'user@example.com' }}</a></li>
+    
+                                    {% if user.is_authenticated %}
+                                    <li class="account_link"> <i class="icofont-user-alt-7"></i><a href="{% url 'acccount'%}">Account</a>
+                                        <ul class="dropdown_account_link">
+                                            <li><a href="{% url 'acccount' %}">My Account</a></li>
+                                            <li><a href="{% url 'logout' %}">Logout</a></li>
+                                        </ul>
+                                    </li>
+                                    {% else %}
+                                    <li><a href="{% url 'login' %}">Login</a></li>
+                                    <li><a href="{% url 'register' %}">Register</a></li>
+                                    {% endif %}
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="main_header d-flex justify-content-between align-items-center">
+                        <div class="header_logo">
+                            <a class="sticky_none" href="{% url "index" %}"><img src="{% static 'img/logo/logo.png'%}" alt=""></a>
+                        </div>
+                        <!--main menu start-->
+                        <div class="main_menu d-none d-lg-block">
+                            <nav>
+                                <ul class="d-flex">
+                                    <li><a class="active" href="{% url 'index'%}">Home</a></li>
+                                    <li><a href="{% url 'about' %}">About</a></li>
+                                    <li> <a href="{% url 'shop' %}">Shop</a></li>
+                                  </li>
+                                    <li><a href="{% url 'contact'%}">Contact</a></li>
+                                </ul>
+                            </nav>
+                        </div>
+                        <!--main menu end-->
+                        <div class="header_account">
+                            <ul class="d-flex">
+                                <li class="shopping_cart">
+                                    <a href="{% url 'cart' %}">
+                                        <span class="item_count">{{ cartItems }}</span>
+                                        <span class="cart_logo" style="display: inline-block;">
+                                            <img src="{% static 'img/logo/cart.png' %}" alt="Cart Logo" style="width: 20px; height: 20px;">
+                                        </span>
+                                    </a>
+                                </li>
+                            </ul>
+                            <div class="canvas_open">
+                                <a href="javascript:void(0)"><i class="ion-navicon"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- breadcrumbs area start -->
+    <div class="breadcrumbs_aree breadcrumbs_bg mb-100" data-bgimg="{% static 'img/others/breadcrumbs-bg.png'%}">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="breadcrumbs_text">
+                        <h1>Product details</h1>
+                        <ul>
+                            <li><a href="{% url 'index' %}">Home </a></li>
+                            <li> // Product details</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- breadcrumbs area end -->
+
+    <!-- single product section start-->
+    <div class="single_product_section mb-100">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 col-md-6">
+                    <div class="single_product_gallery">
+                        <div class="product_gallery_inner d-flex">
+                            <div class="product_gallery_main_img">
+                                <div class="gallery_img_list">
+                                    <img data-image="{{product.url}}" src="{{product.image.url}}" alt="">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-6">
+                    <div class="products_sidebar">
+                        <h2 class="product__title">{{product.name}}</h2>
+                        <div class="price_box">
+                            <span class="current_price">$ {{product.price}}</span>
+                        </div>
+                        <p class="products_desc">{{product.description}}</p>
+                        <div class="product_pro_button quantity d-flex align-items-center">
+                            <button data-product="{{product.id}}" data-action="add" class="btn btn-outline-secondary add-btn update-cart" style="display: block; float: left; text-transform: uppercase; font-size: 14px; font-weight: 600; height: 50px; line-height: 50px; padding: 0 35px; border-radius: 30px; color: #ffffff; background: #2b4174;">Add to Cart</button>
+                        </div>
+                        <div class="product_paypal">
+                            <img src="{% static 'img/others/paypal.png'%}" alt="payments">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- product details section end-->
+
+    <!-- product tab section start -->
+    <div class="product_tab_section mb-80">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="product_tab_navigation">
+                        <ul class="nav justify-content-center">
+                            <li>
+                                <a class="active" data-bs-toggle="tab" href="#description" aria-controls="description">Description</a>
+                            </li>
+                            <li>
+                                <a data-bs-toggle="tab" href="#aditional" aria-controls="aditional">Information</a>
+                            </li>
+                            <li>
+                                <a data-bs-toggle="tab" href="#reviews" aria-controls="reviews">Reviews </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="product_page_content_inner tab-content">
+                        <div class="tab-pane fade show active" id="description" role="tabpanel">
+                            <div class="product_tab_desc">
+                                <p>{{product.description}}</p>
+                            </div>
+                        </div>
+                        <div class="tab-pane fade" id="aditional" role="tabpanel">
+                            <div class="product_d_information">
+                                <form action="#">
+                                    <table class="border-top">
+                                        <tbody>
+                                            <tr>
+                                                <td class="first_child">Compositions</td>
+                                                <td>Polyester</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="first_child">Styles</td>
+                                                <td>Girly</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="first_child">Properties</td>
+                                                <td>Short Dress</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </form>
+                            </div>
+                            <div class="product_info_desc">
+                                <p class="mb-0">Fashion has been creating well-designed collections since 2010. The brand offers feminine designs delivering stylish separates and statement dresses which have since evolved into a full ready-to-wear collection in which
+                                    every item is a vital part of a woman's wardrobe. The result? Cool, easy, chic looks with youthful elegance and unmistakable signature style. All the beautiful pieces are made in Italy and manufactured with the greatest
+                                    attention. Now Fashion extends to a range of accessories including shoes, hats, belts and more!</p>
+                            </div>
+                        </div>
+                        <div class="tab-pane fade" id="reviews" role="tabpanel">
+                            <div class="reviews__wrapper">
+                                <h2>Write Your Own Review</h2>
+                                <div class="customer__reviews d-flex justify-content-between mb-20">
+                                    <div class="customer_reviews_left">
+                                        <div class="comment__title">
+                                            <h2>Add a review </h2>
+                                            <p>Your email address will not be published. Required fields are marked
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="customer_reviews_right">
+                                        <h2 class="reviews__title">Customer Reviews</h2>
+                                        
+                                        <div class="reviews__desc">
+                                            <h3>Lorem ipsum dolor sit amet</h3>
+                                            <span>Posted on July 22, 2020</span>
+                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
+                                                ex ea commodo consequat.</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="product_review_form">
+                                    <form method="POST">
+                                        {% csrf_token %}
+                                        <div class="row">
+                                            <div class="col-12">
+                                                <label for="review_comment">Your review </label>
+                                                <textarea class="border" name="comment" id="review_comment"></textarea>
+                                            </div>
+                                            <div class="col-lg-6 col-md-6">
+                                                <label for="author">Name</label>
+                                                <input class="border" id="author" type="text" name="author">
+                                            </div>
+                                            <div class="col-lg-6 col-md-6">
+                                                <label for="email">Email </label>
+                                                <input class="border" id="email" type="text" name="email">
+                                            </div>
+                                            <div class="col-12">
+                                                <label for="rating">Rating:</label><br>
+                                                <input class="border" id="rating" type="number" name="rating" min="1" max="5" step="0.1">
+                                              </div>                                              
+                                        </div>
+                                        
+                                        <button class="btn custom-btn text-white" data-hover="Submit" type="submit">Submit</button>
+                                    </form>
+                                </div>
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- product tab section end -->
+
+    <!-- product section start -->
+    <div class="container">
+        <div class="section_title text-center mb-55">
+            <h2>Related Products</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod <br> tempor
+                incididunt ut
+                labore et dolore magna</p>
+        </div>
+    <div class="row product_slick slick_navigation slick__activation" data-slick='{
+        "slidesToShow": 4,
+        "slidesToScroll": 1,
+        "arrows": true,
+        "dots": false,
+        "autoplay": false,
+        "speed": 300,
+        "infinite": true ,  
+        "responsive":[ 
+            {"breakpoint":992, "settings": { "slidesToShow": 3 } }, 
+            {"breakpoint":768, "settings": { "slidesToShow": 2 } }, 
+            {"breakpoint":500, "settings": { "slidesToShow": 1 } }  
+         ]                                                     
+    }'>
+        {% for related_product in related_products %}
+        <div class="col-lg-3">
+            <article class="single_product">
+                <figure>
+                    <div class="product_thumb text-center">
+                        <a href="{% url 'product' related_product.id %}"><img src="{{ related_product.imageURL }}" alt="" style="max-height: 250px; max-width: 70%; display: inline-block;"></a>
+                    </div>
+                    <figcaption class="product_content text-center">
+                        <h4><a href="{% url 'product' related_product.id %}">{{ related_product.name }}</a></h4>
+                        <div class="product_price">
+                            {% if related_product.discounted_price %}
+                                <span class="old_price">${{ related_product.price }}</span>
+                                <span class="current_price">${{ related_product.discounted_price }}</span>
+                            {% else %}
+                                <span class="current_price">${{ related_product.price }}</span>
+                            {% endif %}
+                        </div>
+                    </figcaption>
+                </figure>
+            </article>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+    
+                            
+    <!-- product section end -->
+
+    <footer class="footer_widgets">
+        <div class="container">
+            <div class="main_footer">~
+                <div class="row">
+                    <div class="col-12">
+                        <div class="main_footer_inner d-flex">
+                            <div class="footer_widget_list contact footer_list_width">
+                                <h3 style ="font-size: 2rem;">Contact Us</h3>
+                                <div class="footer_contact_desc">
+                                    <p style="font-size: 1.3rem; padding: 5px 0;" >If you have any question.please contact us at  <a href="#"> info@heraldcollege.edu.np</a></p>
+                                </div>
+                                <div class="footer_contact_info">
+                                    <div class="footer_contact_info_list d-flex align-items-center">
+                                        <div class="footer_contact_info_text">
+                                            <p style="font-size: 1.3rem; padding: 5px 0;">Naxal Bhagawati Marga,
+                                                Kathmandu, Nepal</p>
+                                        </div>
+                                    </div>
+                                    <div class="footer_contact_info_list d-flex align-items-center">
+                                        
+                                        <div class="footer_contact_info_text">
+                                            <ul>
+                                                <li><a style="font-size: 1.3rem; padding: 5px 0;" href="+977 9801022637">+977 9801022637</a>
+                                                </li>
+                                                <li><a style="font-size: 1.3rem; padding: 5px 0;" href="+977 01-5970120">+977 01-5970120</a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="footer_menu_widget footer_list_width middle d-flex" >
+                                <div class="footer_widget_list">
+                                  <h3 style ="font-size: 2rem;">Information</h3>
+                                  <div class="footer_menu">
+                                    <ul>
+                                      <li><a style="font-size: 1.3rem; padding: 5px 0;" href="{% url 'about'%}"> About us</a></li>
+                                      <li><a style="font-size: 1.3rem; padding: 5px 0;" href="{% url 'contact'%}">Delivery information</a></li>
+                                      <li><a style="font-size: 1.3rem; padding: 5px 0;" href="{% url 'contact'%}">Sales</a></li>
+                                      <li><a style="font-size: 1.3rem; padding: 5px 0;" href="{% url 'contact'%}">Terms & Conditions</a></li>
+                                    </ul>
+                                  </div>
+                                </div>
+                              </div>
+                              
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+   
+
+    <!-- JS
+============================================ -->
+
+    <script src="{% static 'js/vendor/jquery-3.6.0.min.js'%}"></script>
+    <script src="{% static 'js/vendor/jquery-migrate-3.3.2.min.js'%}"></script>
+    <script src="{% static 'js/vendor/bootstrap.bundle.min.js'%}"></script>
+    <script src="{% static 'js/slick.min.js'%}"></script>
+    <script src="{% static 'js/owl.carousel.min.js'%}"></script>
+    <script src="{% static 'js/wow.min.js'%}"></script>
+    <script src="{% static 'js/jquery.scrollup.min.js'%}"></script>
+    <script src="{% static 'js/jquery.nice-select.js'%}"></script>
+    <script src="{% static 'js/jquery.magnific-popup.min.js'%}"></script>
+    <script src="{% static 'js/mailchimp-ajax.js'%}"></script>
+    <script src="{% static 'js/jquery-ui.min.js'%}"></script>
+    <script src="{% static 'js/jquery.zoom.min.js'%}"></script>
+
+    <!-- Main JS -->
+    <script src="{% static 'js/main.js'%}"></script>
+    <script src="{% static 'js/cart.js'%}"></script>
+
+
+
+</body>
+
+</html>

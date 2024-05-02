@@ -1,0 +1,26 @@
+Content-Type: text/plain; charset="utf-8"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
+Subject: Password reset on 127.0.0.1:8000
+From: webmaster@localhost
+To: davidghimire124@gmail.com
+Date: Tue, 27 Jun 2023 16:33:39 -0000
+Message-ID: 
+ <168788361953.8172.3983394439574407724@DESKTOP-5AKMR8I.worldlink.com.np>
+
+
+You're receiving this email because you requested a password reset for your user account at 127.0.0.1:8000.
+
+Please go to the following page and choose a new password:
+
+http://127.0.0.1:8000/reset/MTM/bqh4n3-c1bf35cb2157a4e4c458eeb80f2fe592/
+
+Your username, in case you’ve forgotten: david
+
+Thanks for using our site!
+
+The 127.0.0.1:8000 team
+
+
+
+-------------------------------------------------------------------------------
